@@ -1,0 +1,45 @@
+{% load static %}
+<div class="container">
+    <div class="weather-side">
+    <div class="weather-gradient"></div>
+    <div class="date-container">
+        <h2 class="date-dayname">{{today}}</h2><span class="date-day">{{today_date}}</span><span class="location">{{city.country}}, {{city.city|title}}</span>
+    </div>
+    <div class="weather-container"><i class="weather-icon"><img src="{% static "weather/images/"|add:city.icon %}" alt="weather icon"></i>
+        <h1 class="weather-temp">{{city.temp}}°C</h1>
+        <h3 class="weather-desc">{{city.weather}}</h3>
+    </div>
+    </div>
+    <div class="info-side">
+    <div class="today-info-container">
+        <div class="today-info">
+        <div class="visibility"> <span class="title">VISIBILITY</span><span class="value">{{city.visibility}} %</span>
+            <div class="clear"></div>
+        </div>
+        <div class="humidity"> <span class="title">HUMIDITY</span><span class="value">{{city.humidity}} %</span>
+            <div class="clear"></div>
+        </div>
+        <div class="wind"> <span class="title">WIND</span><span class="value">{{city.wind_speed}} km/h</span>
+            <div class="clear"></div>
+        </div>
+        </div>
+    </div>
+    <div class="week-container">
+        <ul class="week-list">
+        <li class="active"><i class="weather-icon-small"><img src="{% static "weather/images/"|add:city.icon %}" alt="weather icon"></i><span class="day-name">{{today_short}}</span><span class="day-temp">{{city.temp}}°C</span></li>
+        {% for day in city.next_3_days %}
+            <li>
+                <span class="day-temp max">{{day.temp_max}}°C</span><span class="day-name">{{day.today_short}}</span><span class="day-temp min">{{day.temp_min}}°C</span>
+            </li>
+        {% endfor %}
+        <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="location-container">
+        <form action="delete/" method="POST"> {% csrf_token %}
+            <input type="hidden" name="city_name" value="{{city.city}}" />
+            <button class="location-button"><span>Delete location</span></button>
+        </form>
+    </div>
+    </div>
+</div>
