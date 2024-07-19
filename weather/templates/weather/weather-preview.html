@@ -29,7 +29,7 @@
         <li class="active"><i class="weather-icon-small"><img src="{% static "weather/images/"|add:city.icon %}" alt="weather icon"></i><span class="day-name">{{today_short}}</span><span class="day-temp">{{city.temp}}°C</span></li>
         {% for day in city.next_3_days %}
             <li>
-                <span class="day-temp max">{{day.temp_max}}°C</span><span class="day-name">{{day.today_short}}</span><span class="day-temp min">{{day.temp_min}}°C</span>
+                <span class="day-temp max">{{day.temp_max}}°C</span><span class="weather-icon-small-week"><img src="{% static "weather/images/"|add:day.icon %}" alt="weather icon"></span><span class="day-name">{{day.today_short}}</span><span class="day-temp min">{{day.temp_min}}°C</span>
             </li>
         {% endfor %}
         <div class="clear"></div>

@@ -126,6 +126,13 @@ body {
 	width: auto;
 }
 
+.weather-icon-small-week img {
+	height: 30px;
+	width: auto;
+	margin: 5px 0 0 0;
+	text-align: center;
+}
+
 .weather-temp {
 	margin: 0;
 	font-weight: 700;
@@ -143,7 +150,7 @@ body {
 }
 
 .today-info {
-	padding: 15px;
+	padding-top: 15px;
 	margin: 0 25px 0 25px;
 	border-radius: 10px;
 }
@@ -177,6 +184,7 @@ body {
 	-o-transition: 200ms ease;
 	transition: 200ms ease;
 	border-radius: 10px;
+	text-align: center;
 }
 
 .week-list>li:hover {
@@ -202,7 +210,7 @@ body {
 
 .week-list>li .day-name {
 	display: block;
-	margin: 10px 0 0 0;
+	margin: 5px 0 0 0;
 	text-align: center;
 }
 
@@ -216,7 +224,7 @@ body {
 .week-list>li .day-temp {
 	display: block;
 	text-align: center;
-	margin: 10px 0 0 0;
+	margin: 5px 0 0 0;
 	font-weight: 700;	
 }
 
